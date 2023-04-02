@@ -1,0 +1,30 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: antiquewhite;
+}
+
+nav {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(245, 145, 31);
+    font-size: 48px;
+}
+
+.link {
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 15%;
+    font-size: 32px;
+    padding: 5px;
+    align-self: center;
+    color: black;
+    background-color: rgb(255, 214, 168);
+}
+
+#global {
+    padding: 25px;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
