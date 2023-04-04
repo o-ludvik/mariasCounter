@@ -9,22 +9,75 @@ nav {
     text-align: center;
     background-color: rgb(245, 145, 31);
     font-size: 48px;
+    margin-bottom: 20px;
 }
 
 .link {
     text-decoration: none;
     border: 1px solid black;
-    border-radius: 15%;
+    border-radius: 10px;
     font-size: 32px;
     padding: 5px;
     align-self: center;
     color: black;
     background-color: rgb(255, 214, 168);
+    width: 350px;
+    text-align: center;
 }
 
 #global {
     padding: 25px;
     gap: 5px;
     display: flex;
+    flex-direction: column;
+}
+
+.playerStats {
+    text-align: center;
+}
+
+.playerStats > table{
+    margin: auto;
+    margin-top: 10px;
+    font-size: 32px;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+.playerStats > table > tbody > tr > th, td {
+    padding: 5px 10px;
+    border-bottom: 1px solid black;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.sesh {
+    background-color:  rgb(255, 214, 168);
+    border: 1px solid black;
+    width: 300px;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+
+.seshHeader, .seshP {
+    margin: 2px
+}
+
+.flex {
+    display: flex;
+}
+
+.evenly {
+    justify-content: space-evenly;
+}
+
+.column {
     flex-direction: column;
 }
