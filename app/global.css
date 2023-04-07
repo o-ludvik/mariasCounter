@@ -78,6 +78,10 @@ nav {
     justify-content: space-evenly;
 }
 
+.center {
+    justify-content: center
+}
+
 .column {
     flex-direction: column;
 }

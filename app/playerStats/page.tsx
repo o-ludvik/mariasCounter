@@ -1,12 +1,19 @@
 import Link from "next/link"
 import '../global.css'
+import PocketBase from 'pocketbase';
 
 async function listPlayerStats() {
-    const responce =  await fetch('http://127.0.0.1:8090/api/collections/hrac/records')
-    const data = await responce.json()
-    return data?.items as any[]
+    const pb = new PocketBase('https://mariascounter.fly.dev')
+    const resultList = await pb.collection('players').getFullList({sort: '-bankBalance'})
+    return resultList.map((player:any) => {
+        return {
+            id:player.id,
+            name:player.name,
+            surname:player.surname,
+            bankBalance:player.bankBalance,
+        }
+    })
 }
-
 
 export default async function playerStats() {
     const players = await listPlayerStats()
@@ -14,25 +21,25 @@ export default async function playerStats() {
         <table>
             <tbody>
                 <tr>
-                    <th>Jméno</th>
-                    <th>Příjmení</th>
-                    <th>Peníze</th>
+                    <th>Jmeno</th>
+                    <th>Prijmeni</th>
+                    <th>penize</th>
                 </tr>
-                {players.map((player) => {
-                    return (
+                {players.map((player:any) => {
+                    return(
                         <tr key={player.id}>
-                            <td>{player.jmeno}</td>
-                            <td>{player.prijmeni}</td>
-                            <td>{player.penize}</td>
+                            <td>{player.name}</td>
+                            <td>{player.surname}</td>
+                            <td>{player.bankBalance}</td>
                         </tr>
                     )
                 })}
             </tbody>
         </table>
-    )
+    ) //dodelat new player
     return(
         <div className="playerStats">
-            <Link href={'./'} className="link">Go back</Link>
+            <Link href={'./'} className="link" style={{margin: '0px 10px'}}>Go back</Link>
             {playersTable}
         </div>
     )
